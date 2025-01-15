@@ -104,19 +104,6 @@ export const useEmployeeRolesPermissionsGroups: UseEmployeeRolesPermissionsGroup
             ],
         },
         {
-            key: 'news',
-            permissions: [
-                {
-                    key: 'canReadNewsItems',
-                    relatedUncheckPermissions: ['canManageNewsItems'],
-                },
-                {
-                    key: 'canManageNewsItems',
-                    relatedCheckPermissions: ['canReadNewsItems'],
-                },
-            ],
-        },
-        {
             key: 'properties',
             permissions: [
                 {
@@ -166,56 +153,6 @@ export const useEmployeeRolesPermissionsGroups: UseEmployeeRolesPermissionsGroup
             ],
         },
         {
-            key: 'marketplace',
-            permissions: [
-                {
-                    key: 'canManageMarketplace',
-                    relatedCheckPermissions: ['canReadMarketplace', 'canReadMarketItems', 'canReadMarketItemPrices', 'canReadMarketPriceScopes'],
-                },
-                {
-                    key: 'canReadPaymentsWithInvoices',
-                    relatedCheckPermissions: ['canReadMarketplace'],
-                },
-                {
-                    key: 'canReadMarketItems',
-                    relatedCheckPermissions: ['canReadMarketplace', 'canReadMarketItemPrices', 'canReadMarketPriceScopes'],
-                    relatedUncheckPermissions: ['canManageInvoices', 'canManageMarketplace', 'canManageMarketItems', 'canManageMarketItemPrices', 'canManageMarketPriceScopes', 'canReadMarketItemPrices', 'canReadMarketPriceScopes'],
-                },
-                {
-                    key: 'canManageMarketItems',
-                    relatedCheckPermissions: ['canReadMarketplace', 'canReadMarketItems', 'canReadMarketItemPrices', 'canReadMarketPriceScopes', 'canManageMarketItemPrices', 'canManageMarketPriceScopes'],
-                    relatedUncheckPermissions: ['canManageMarketItemPrices', 'canManageMarketPriceScopes'],
-                },
-                {
-                    key: 'canReadInvoices',
-                    relatedCheckPermissions: ['canReadMarketplace'],
-                    relatedUncheckPermissions: ['canManageInvoices'],
-                },
-                {
-                    key: 'canManageInvoices',
-                    relatedCheckPermissions: ['canReadMarketItems', 'canReadMarketItemPrices', 'canReadMarketPriceScopes', 'canReadMarketplace', 'canReadInvoices'],
-                },
-            ],
-        },
-        {
-            key: 'billing',
-            permissions: [
-                {
-                    key: 'canReadBillingReceipts',
-                    relatedCheckPermissions: ['canReadPayments'],
-                    relatedUncheckPermissions: ['canManageIntegrations', 'canImportBillingReceipts', 'canReadPayments'],
-                },
-                {
-                    key: 'canManageIntegrations',
-                    relatedCheckPermissions: ['canReadPayments', 'canReadBillingReceipts'],
-                },
-                {
-                    key: 'canImportBillingReceipts',
-                    relatedCheckPermissions: ['canReadPayments', 'canReadBillingReceipts'],
-                },
-            ],
-        },
-        {
             key: 'meters',
             permissions: [
                 {
@@ -238,19 +175,6 @@ export const useEmployeeRolesPermissionsGroups: UseEmployeeRolesPermissionsGroup
                 {
                     key: 'canReadSettings',
                     relatedUncheckPermissions: ['canManageRoles'],
-                },
-            ],
-        },
-        {
-            key: 'services',
-            permissions: [
-                {
-                    key: 'canReadServices',
-                    relatedUncheckPermissions: ['canManageB2BApps'],
-                },
-                {
-                    key: 'canManageB2BApps',
-                    relatedCheckPermissions: ['canReadServices'],
                 },
             ],
         },

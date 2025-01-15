@@ -6,8 +6,9 @@ const StyleDictionaryLib = require('style-dictionary')
 
 const { allTransformers, webVarsTransformersChain } = require('./transformers')
 
-const TOKENS_DIR = path.join(__dirname, '../..', 'src/tokens')
-const SOURCE_PATH = path.join(TOKENS_DIR, 'sets/*.json')
+const TOKENS_DIR = path.join(__dirname, '..', '..', 'src', 'tokens')
+
+const SOURCE_PATH = path.join(TOKENS_DIR, 'sets', '*.json').replace(/\\/g, '/')
 // Less is used for development, CSS is used for strict token values check
 // Can be expanded with SCSS if someday we will decide to give tokens out
 // It's also possible to generate mobile tokens for iOS and Android here
