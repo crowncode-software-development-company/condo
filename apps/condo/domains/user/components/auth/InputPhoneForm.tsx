@@ -6,8 +6,8 @@ import React, { useCallback, useContext, useMemo, useState } from 'react'
 import { useMutation } from '@open-condo/next/apollo'
 import { useIntl } from '@open-condo/next/intl'
 import { FormattedMessage } from '@open-condo/next/intl'
+import { Button } from '@open-condo/ui'
 
-import { Button } from '@condo/domains/common/components/Button'
 import { TabsAuthAction } from '@condo/domains/common/components/HeaderActions'
 import { LoginWithSBBOLButton } from '@condo/domains/common/components/LoginWithSBBOLButton'
 import { PhoneInput } from '@condo/domains/common/components/PhoneInput'
@@ -168,7 +168,7 @@ export const InputPhoneForm: React.FC<IInputPhoneFormProps> = ({ onFinish }) => 
                                     <Form.Item>
                                         <Button
                                             key='submit'
-                                            type='sberDefaultGradient'
+                                            type='primary'
                                             htmlType='submit'
                                             loading={isLoading}
                                             data-cy='register-button'

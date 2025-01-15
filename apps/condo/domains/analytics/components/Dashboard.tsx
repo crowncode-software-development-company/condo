@@ -17,10 +17,7 @@ import {
     TicketQualityControlChart,
     ResidentByPropertyChart,
     AllTicketsChart,
-    PaymentByPropertyChart,
-    PaymentReceiptChart,
     TicketByCategoryChart,
-    PaymentTotalChart,
 } from '@condo/domains/analytics/components/charts'
 import { GET_OVERVIEW_DASHBOARD_MUTATION } from '@condo/domains/analytics/gql'
 import { usePropertyFilter, useDateRangeFilter } from '@condo/domains/analytics/hooks/useDashboardFilters'
@@ -486,22 +483,6 @@ export const Dashboard: React.FC<{ organizationId: string }> = ({ organizationId
                         <Col lg={12} md={24} xs={24}>
                             <TicketByCategoryChart
                                 data={categoryTickets}
-                                organizationId={organizationId}
-                            />
-                        </Col>
-                        <Col lg={12} md={24} xs={24}>
-                            <PaymentTotalChart
-                                data={paymentsData}
-                            />
-                        </Col>
-                        <Col lg={12} md={24} xs={24}>
-                            <PaymentReceiptChart
-                                data={chargedToPaidData}
-                            />
-                        </Col>
-                        <Col lg={12} md={24} xs={24}>
-                            <PaymentByPropertyChart
-                                data={paymentsData}
                                 organizationId={organizationId}
                             />
                         </Col>

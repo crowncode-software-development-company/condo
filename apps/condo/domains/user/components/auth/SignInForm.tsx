@@ -7,9 +7,9 @@ import { useMutation } from '@open-condo/next/apollo'
 import { useAuth } from '@open-condo/next/auth'
 import { FormattedMessage } from '@open-condo/next/intl'
 import { useIntl } from '@open-condo/next/intl'
+import { Button } from '@open-condo/ui'
 
 import Input from '@condo/domains/common/components/antd/Input'
-import { Button } from '@condo/domains/common/components/Button'
 import { LoginWithSBBOLButton } from '@condo/domains/common/components/LoginWithSBBOLButton'
 import { PhoneInput } from '@condo/domains/common/components/PhoneInput'
 import { colors } from '@condo/domains/common/constants/style'
@@ -156,7 +156,7 @@ export const SignInForm = (): React.ReactElement => {
                             <Form.Item>
                                 <Button
                                     key='submit'
-                                    type='sberDefaultGradient'
+                                    type='primary'
                                     htmlType='submit'
                                     loading={isLoading}
                                     block
