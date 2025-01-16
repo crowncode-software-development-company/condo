@@ -15,7 +15,6 @@ import {
     TicketByPropertyChart,
     TicketByExecutorChart,
     TicketQualityControlChart,
-    ResidentByPropertyChart,
     AllTicketsChart,
     TicketByCategoryChart,
 } from '@condo/domains/analytics/components/charts'
@@ -424,12 +423,9 @@ export const Dashboard: React.FC<{ organizationId: string }> = ({ organizationId
     const ticketQualityControlValue = get(overview, 'ticketQualityControlValue.tickets', [])
     const ticketQualityControlValueTranslations = get(overview, 'ticketQualityControlValue.translations', [])
     const propertyData = get(overview, 'property.sum', 0)
-    const paymentsData = get(overview, 'payment.payments', [])
     const paymentSum = get(overview, 'payment.sum', null)
-    const receiptsData = get(overview, 'receipt.receipts', [])
     const residentsData = get(overview, 'resident.residents', [])
     const incidentsCount = get(overview, 'incident.count', 0)
-    const chargedToPaidData = paymentsData.length > 0 && receiptsData.length > 0 ? [paymentsData, receiptsData] : []
 
     return (
         <Row gutter={DASHBOARD_ROW_GUTTER}>
@@ -483,12 +479,6 @@ export const Dashboard: React.FC<{ organizationId: string }> = ({ organizationId
                         <Col lg={12} md={24} xs={24}>
                             <TicketByCategoryChart
                                 data={categoryTickets}
-                                organizationId={organizationId}
-                            />
-                        </Col>
-                        <Col lg={12} md={24} xs={24}>
-                            <ResidentByPropertyChart
-                                data={residentsData}
                                 organizationId={organizationId}
                             />
                         </Col>
