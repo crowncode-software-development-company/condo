@@ -2,9 +2,8 @@
  * Add the address manually if there is no provider
  *
  * Usage:
- *      yarn workspace @app/address-service node bin/create-address "streetName, houseNumber""
+ *      yarn workspace @app/address-service node bin/create-address "streetName, houseNumber"
  */
-
 
 const path = require('path')
 
@@ -13,7 +12,10 @@ const { prepareKeystoneExpressApp } = require('@open-condo/keystone/prepareKeyst
 const { AddressInjection } = require('@address-service/domains/address/utils/serverSchema')
 
 async function main (args) {
-    const [streetName, houseNumber] = args.split(',')
+    if (args.length === 0) {
+        throw new Error('You must provide the address in the format: "Street Name, House Number"')
+    }
+    const [streetName, houseNumber] = args[0].split(',')
 
     if (!streetName || !houseNumber) {
         throw new Error('You must provide both street name and house number in the format: "Street Name, House Number"')
@@ -23,8 +25,8 @@ async function main (args) {
 
     let addressData = {
         country: 'Россия',
-        street: { 'name': streetName, 'typeFull': 'улица', 'typeShort': 'ул' },
-        house: { 'name': houseNumber, 'typeFull': 'дом', 'typeShort': 'д' },
+        street: { 'name': streetName.trim(), 'typeFull': 'улица', 'typeShort': 'ул' },
+        house: { 'name': houseNumber.trim(), 'typeFull': 'дом', 'typeShort': 'д' },
         dv: 1,
         sender: { 'dv': 1, 'fingerprint': 'create-address-script' },
     }
@@ -41,10 +43,11 @@ async function main (args) {
     }
 }
 
-const input = process.argv[2]
-
-main(input).then(
-    () => process.exit(),
+main(process.argv.slice(2)).then(
+    () => {
+        console.info('✅ All done!')
+        process.exit()
+    },
     (error) => {
         console.error(error)
         process.exit(1)
